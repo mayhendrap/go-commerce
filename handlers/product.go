@@ -19,7 +19,7 @@ func NewProductHandler(productService services.ProductService) *productHandler {
 
 func (h *productHandler) Create(c *gin.Context) {
 	var input request.ProductRequest
-	if c.ShouldBindJSON(&input) != nil {
+	if err := c.ShouldBindJSON(&input); err != nil {
 
 	}
 }

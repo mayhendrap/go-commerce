@@ -7,10 +7,11 @@ import (
 )
 
 type Product struct {
-	Base
+	ID          uuid.UUID
 	Title       string
 	Description string
 	Price       int
+	Base
 }
 
 func (p *Product) BeforeCreate(db *gorm.DB) (err error) {

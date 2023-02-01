@@ -7,11 +7,12 @@ import (
 )
 
 type User struct {
-	Base
+	ID        uuid.UUID
 	FirstName string
 	LastName  string
 	Email     string
 	Password  string
+	Base
 }
 
 func (u *User) BeforeCreate(db *gorm.DB) (err error) {

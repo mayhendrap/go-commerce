@@ -13,7 +13,7 @@ import (
 func main() {
 	_, db, err := configInitialization()
 	if err != nil {
-		log.Fatal("Config initialization failed!.")
+		log.Fatal("config initialization failed!.")
 	}
 
 	migrations.MigrationModels(db)
@@ -21,6 +21,7 @@ func main() {
 	router := routes.SetupRouter()
 	route := router.Group("/")
 
+	routes.AuthenticationRoute(db, route)
 	routes.ProductRoute(db, route)
 
 	err = router.Run() // wil run default in port 8080

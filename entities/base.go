@@ -7,7 +7,7 @@ import (
 )
 
 type Base struct {
-	ID        uuid.UUID
+	gorm.Model
 	CreatedAt time.Time
 	UpdatedAt time.Time
 	DeletedAt gorm.DeletedAt
